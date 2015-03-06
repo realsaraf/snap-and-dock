@@ -8,9 +8,6 @@ var __extends = function (d, b) {
     d.prototype = new __();
 };
 
-var InterApplicationBus = fin.desktop.InterApplicationBus;
-var FinWindow = fin.desktop.Window;
-
 var DockingGroup = (function(){
 
     function DockingGroup(){
@@ -327,7 +324,7 @@ var DockingManager = (function(){
         var dWindow = null;
         var position = {x: null, y: null};
 
-        for(var i = 0; i < windows.length; i++){
+        for(var i = windows.length - 1; i >= 0; i--){
 
             dWindow = windows[i];
 
