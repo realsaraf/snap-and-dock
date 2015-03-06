@@ -6,12 +6,11 @@ The intention of this repo is to provide developers a general (yet uniform) appr
 ## Current Features
 * Window snapping while dragging closed to other windows
 * Docking snapped windows on release. 
-   - Still needs live dragging for child windows.
 * Group docking, where you can have different group of windows grouped together.
+* Hierarchal docking and undocking of groups.
+   - i.e windows can have parent, child and sibling relations so they can be undocked in the same order as they were docked intuitively.
 
 ## Roadmap
-* Hierarchal docking and undocking of groups. 
-   - i.e windows can have parent, child and sibling relations so they can be undocked in the same order as they were docked intuitively. Functionality can be overridden/altered using keyboard hot keys like shift, ctrl, alt etc.
-* Live dragging for child windows.
+* overriding different behaviours (like group docking/undocking) using keyboard hot keys like shift, ctrl, alt etc.
 * Upon generic code or framework, create some example projects to demonstrate how to extend or override certain features to achieve app specific requirements.
 * Identified behavioral issues or bugs
