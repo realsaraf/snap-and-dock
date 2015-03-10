@@ -15,16 +15,16 @@ The intention of this repo is to provide developers a general (yet uniform) appr
 * Upon generic code or framework, create some example projects to demonstrate how to extend or override certain features to achieve app specific requirements.
 * Identified behavioral issues or bugs
 
-## How to use
+# How to use
 
-# From main window
+## From main window
 1. Add DockingManager.js in your project.
 2. Creating new instance of DockingManager (var dockingManager = new DockingManager();)
 3. Register instances of Openfin Windows (fin.desktop.Window) with DockingManager. (dockingManager.register(fin.desktop.Window.getCurrent()));
 4. If you want a window to not dock to others but only others to dock to it you can pass false as the second argument of dockingManager.register (dockingManager.register(fin.desktop.Window.getCurrent(), false))
 
 
-# From Child Window
+## From Child Window
 
  1. You can subscribe to docking events (window-docked, window-undocked) to get notified when child window gets docked to another window.
 e.g. fin.desktop.InterApplicationBus.subscribe("*", "window-docked", onDock);
