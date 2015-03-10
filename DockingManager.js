@@ -191,7 +191,7 @@ var DockableWindow = (function(_super){
         this._inviteMemebersToTheGroup(this.children, group);
         this.isDocked = true;
 
-        InterApplicationBus.publish("window-docked", {
+        fin.desktop.InterApplicationBus.publish("window-docked", {
 
             windowName: this.name
         });
@@ -218,7 +218,7 @@ var DockableWindow = (function(_super){
         this.openfinWindow.leaveGroup();
         this._inviteMemebersToTheGroup(this.children, this);
         this.isDocked = false;
-        InterApplicationBus.publish("window-undocked", {
+        fin.desktop.InterApplicationBus.publish("window-undocked", {
 
             windowName: this.name
         });
@@ -264,7 +264,7 @@ var DockingManager = (function(){
         if(instance) throw new Error("Only one instance of DockingManager is allowed. Use DockingManager.getInstance() to get the instance.");
         instance = this;
         this.createDelegates();
-        InterApplicationBus.subscribe("*", "undock-window", this.onUndock);
+        fin.desktop.InterApplicationBus.subscribe("*", "undock-window", this.onUndock);
     }
 
     DockingManager.getInstance = function(){
@@ -296,8 +296,10 @@ var DockingManager = (function(){
         }
     };
 
-    DockingManager.prototype.register = function(window){
+    DockingManager.prototype.register = function(window, dockableToOthers){
 
+        window = new DockableWindow(window);
+        window.dockableToOthers = (dockableToOthers === undefined || dockableToOthers !== false);
         if(windows.indexOf(window) >= 0) return;
 
         windows.push(window);

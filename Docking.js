@@ -5,20 +5,13 @@
 window.addEventListener("DOMContentLoaded", function() {
     fin.desktop.main(function () {
 
-        InterApplicationBus = fin.desktop.InterApplicationBus;
-        FinWindow = fin.desktop.Window;
-
         var dockingManager = new DockingManager();
         var counter = 0;
 
-
-        var currentWindow = new DockableWindow(fin.desktop.Window.getCurrent());
-        currentWindow.dockableToOthers = false;
-
-        dockingManager.register(currentWindow);
+        dockingManager.register(fin.desktop.Window.getCurrent(), false);
         function createChildWindow() {
 
-            var dw = new DockableWindow({
+            var dw = new fin.desktop.Window({
 
                 name: "child" + counter++,
                 url: "childWindow.html",
@@ -33,10 +26,10 @@ window.addEventListener("DOMContentLoaded", function() {
 
             }, function () {
 
-                console.log("window created successfully!");
+                dockingManager.register(dw);
             });
 
-            dockingManager.register(dw);
+
             return dw;
         }
 
