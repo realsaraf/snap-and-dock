@@ -19,23 +19,24 @@ The intention of this repo is to provide developers a general (yet uniform) appr
 
 ## From main window
 1. Add DockingManager.js in your project.
-2. Creating new instance of DockingManager (var dockingManager = new DockingManager();)
-3. Register instances of Openfin Windows (fin.desktop.Window) with DockingManager. (dockingManager.register(fin.desktop.Window.getCurrent()));
+2. Creating new instance of DockingManager. like ```var dockingManager = new DockingManager();```
+3. Register instances of Openfin Windows (fin.desktop.Window) with DockingManager. ```dockingManager.register(fin.desktop.Window.getCurrent());```
 4. If you want a window to not dock to others but only others to dock to it you can pass false as the second argument of dockingManager.register (dockingManager.register(fin.desktop.Window.getCurrent(), false))
 
 
 ## From Child Window
 
  1. You can subscribe to docking events (window-docked, window-undocked) to get notified when child window gets docked to another window.
-e.g. fin.desktop.InterApplicationBus.subscribe("*", "window-docked", onDock);
-     fin.desktop.InterApplicationBus.subscribe("*", "window-undocked", onUnDock);
+e.g. ```fin.desktop.InterApplicationBus.subscribe("*", "window-docked", onDock);
+     fin.desktop.InterApplicationBus.subscribe("*", "window-undocked", onUnDock);```
+
      As these messages are sent as a broadcast to all windows. you will need to filter these by windowName key which is sent as part of the message.
 
  2. To undock you will need to send a undock message (undock-winodw) with window name passed as part of the message.
- e.g fin.desktop.InterApplicationBus.publish("undock-window", {
+ e.g ```fin.desktop.InterApplicationBus.publish("undock-window", {
 
              windowName: window.name
-         });
+         });```
 
  And thats all!
 
