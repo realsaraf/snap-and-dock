@@ -35,10 +35,7 @@ e.g. ```fin.desktop.InterApplicationBus.subscribe("*", "window-docked", onDock);
 
  2. To undock you will need to send a undock message (undock-winodw) with window name passed as part of the message.
  e.g.
- ``` fin.desktop.InterApplicationBus.publish("undock-window", {
-
-             windowName: window.name
-         });```
+ ``` fin.desktop.InterApplicationBus.publish("undock-window", { windowName: window.name });```
 
  And thats all!
 
