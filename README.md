@@ -33,7 +33,7 @@ e.g. ```fin.desktop.InterApplicationBus.subscribe("*", "window-docked", onDock);
 
      As these messages are sent as a broadcast to all windows. you will need to filter these by windowName key which is sent as part of the message.
 
- 2. To undock you will need to send a undock message (undock-winodw) with window name passed as part of the message.
+ 2. To undock you will need to send an undock message (undock-winodw) with window name passed as part of the message.
  e.g.
  ``` fin.desktop.InterApplicationBus.publish("undock-window", { windowName: window.name });```
 
