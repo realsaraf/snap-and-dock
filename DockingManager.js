@@ -127,7 +127,9 @@ var DockableWindow = (function(_super){
         this.openfinWindow.addEventListener("bounds-changed", this.onBoundsUpdate);
         this.openfinWindow.addEventListener("closed", this.onClosed);
         this.openfinWindow.addEventListener("minimized", this.onMinimized);
+        this.openfinWindow.addEventListener("hidden", this.onMinimized);
         this.openfinWindow.addEventListener("restored", this.onRestored);
+        this.openfinWindow.addEventListener("shown", this.onRestored);
 
         this.onReady();
     };
@@ -173,12 +175,14 @@ var DockableWindow = (function(_super){
 
     DockableWindow.prototype.onMinimized = function(){
 
+        console.log("minized ", this.openfinWindow.name);
         this.minimized = true;
         this.onMinimize();
     };
 
     DockableWindow.prototype.onRestored = function(){
 
+        console.log("maximized ", this.openfinWindow.name);
         this.minimized = false;
         this.onRestore();
     };
@@ -302,6 +306,7 @@ var DockingManager = (function(){
         instance = this;
         this.createDelegates();
         fin.desktop.InterApplicationBus.subscribe("*", "undock-window", this.onUndock);
+        window.document.addEventListener("visibilitychange", this.onVisibilityChanged);
     }
 
     DockingManager.getInstance = function(){
@@ -316,8 +321,11 @@ var DockingManager = (function(){
 
         this.onWindowMove = this.onWindowMove.bind(this);
         this.onWindowClose = this.onWindowClose.bind(this);
+        this.onWindowRestore = this.onWindowRestore.bind(this);
+        this.onWindowMinimize = this.onWindowMinimize.bind(this);
         this.dockAllSnappedWindows = this.dockAllSnappedWindows.bind(this);
         this.onUndock = this.onUndock.bind(this);
+        this.onVisibilityChanged = this.onVisibilityChanged.bind(this);
     };
 
     DockingManager.prototype.onUndock = function(message){
@@ -351,6 +359,18 @@ var DockingManager = (function(){
 
         var index = windows.indexOf(window);
         if(index >= 0) windows.splice(index, 1);
+    };
+
+    DockingManager.prototype.onVisibilityChanged = function(){
+
+        if(document.hidden){
+
+            this.onWindowMinimize();
+        } else {
+
+            this.onWindowRestore();
+        }
+
     };
 
     DockingManager.prototype.onWindowClose = function(event){
