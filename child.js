@@ -2,11 +2,12 @@
  * Created by haseebriaz on 03/02/15.
  */
 
-var parentWindow = window.opener;
+
 var undockButton = null;
 
 fin.desktop.main(function(){
 
+    console.log("");
     document.getElementById("title").innerText = window.name;
 
     setInterval(updateDimentions, 100);
@@ -18,6 +19,8 @@ fin.desktop.main(function(){
 
     fin.desktop.InterApplicationBus.subscribe("*", "window-docked", onDock);
     fin.desktop.InterApplicationBus.subscribe("*", "window-undocked", onUnDock);
+
+    document.body.onclick = function(){ fin.desktop.Window.getCurrent().maximize();fin.desktop.Window.getCurrent().restore();fin.desktop.Window.getCurrent().minimize() }
 });
 
 var onDock = function(message){
@@ -28,7 +31,12 @@ var onDock = function(message){
 
 function updateDimentions(){
 
-    document.getElementById("dimentions").innerHTML = "x: " + window.screenLeft + ", y: " + window.screenTop + ", width: " + window.outerWidth + ", height: "+ window.outerHeight;
+    win = fin.desktop.Window.getCurrent();
+    win.getBounds(function(bounds){
+
+        document.getElementById("dimentions").innerHTML = "x: " + bounds.left + ", y: " + bounds.top + ", width: " + bounds.width + ", height: "+ bounds.height;
+    });
+
 }
 
 function onUnDock(message){
