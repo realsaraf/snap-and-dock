@@ -20,7 +20,6 @@ fin.desktop.main(function(){
     fin.desktop.InterApplicationBus.subscribe("*", "window-docked", onDock);
     fin.desktop.InterApplicationBus.subscribe("*", "window-undocked", onUnDock);
 
-    document.body.onclick = function(){ fin.desktop.Window.getCurrent().maximize();fin.desktop.Window.getCurrent().restore();fin.desktop.Window.getCurrent().minimize() }
 });
 
 var onDock = function(message){
