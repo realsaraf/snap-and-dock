@@ -11,7 +11,7 @@ The intention of this repo is to provide developers a general (yet uniform) appr
    - i.e windows can have parent, child and sibling relations so they can be undocked in the same order as they were docked intuitively.
 
 ## Roadmap
-* overriding different behaviours (like group docking/undocking) using keyboard hot keys like shift, ctrl, alt etc.
+* Overriding different behaviours (like group docking/undocking) using keyboard hot keys like shift, ctrl, alt etc.
 * Upon generic code or framework, create some example projects to demonstrate how to extend or override certain features to achieve app specific requirements.
 * Identified behavioral issues or bugs
 
@@ -39,6 +39,6 @@ e.g. ```fin.desktop.InterApplicationBus.subscribe("*", "window-docked", onDock);
 
  And thats all!
 
- For more details, please have a look the code in this project.
+ For more details, please have a look at the code in this project.
 
 
