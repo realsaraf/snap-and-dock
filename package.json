@@ -1,0 +1,31 @@
+{
+  "name": "snap-and-dock",
+  "version": "0.0.0",
+  "description": "a small framework for snap-to and docking of openfin windows",
+  "main": "Docking.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openfin/snap-and-dock.git"
+  },
+  "author": "haseebriaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/openfin/snap-and-dock/issues"
+  },
+  "homepage": "https://github.com/openfin/snap-and-dock",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-html": "^3.0.0",
+    "grunt-jsbeautifier": "^0.2.7",
+    "grunt-prettify": "^0.4.0",
+    "jshint-stylish": "^1.0.0",
+    "jshint": "^2.6.3",
+    "load-grunt-tasks": "^3.1.0"
+  }
+}

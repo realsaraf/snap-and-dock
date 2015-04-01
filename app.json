@@ -1,20 +1,26 @@
 {
   "devtools_port": 9090,
   "startup_app": {
-    "name": "js-api",
-    "url": "http://localhost.mac/snap-and-dock/",
-    "uuid": "helloOpenfin",
-    "applicationIcon": "http://localhost.mac/favicon.ico",
-    "autoShow": true
+    "name": "docking-manager-example",
+    "urlX": "http://10.9.98.117:8080/index.html",
+    "url": "http://10.9.98.117:8080/index.html",
+    "uuid": "docking-manager-example",
+    "applicationIcon": "http://10.9.98.117:8080/openfin.ico",
+    "autoShow": true,
+    "defaultWidth": 200,
+    "defaultHeight": 150,
+    "defaultTop": 200,
+    "defaultLeft": 200
   },
   "runtime": {
     "arguments": "",
-    "version": "v40"
+    "version": "stable"
   },
   "shortcut": {
     "company": "OpenFin",
-    "description": "js-api-testbench",
-    "icon": "http://localhost:5000/favicon.ico",
-    "name": "js-api"
+    "description": "docking-manager-example",
+    "icon": "http://10.9.98.117:8080/openfin.ico",
+    "name": "docking-manager-example"
   }
 }
+
