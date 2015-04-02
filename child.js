@@ -1,7 +1,9 @@
-/**
- * Created by haseebriaz on 03/02/15.
- */
+/* globals fin, DockingManager */
+'use strict';
 
+/**
+ * Created by haseebriaz on 03/03/15.
+ */
 
 var undockButton = null;
 

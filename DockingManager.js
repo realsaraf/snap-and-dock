@@ -1,6 +1,10 @@
+/* globals fin, DockingManager */
+'use strict';
+
 /**
- * Created by haseebriaz on 24/02/15.
+ * Created by haseebriaz on 03/03/15.
  */
+ 
 var __extends = function (d, b) {
 
     function __() { this.constructor = d; }
@@ -289,9 +293,7 @@ var DockableWindow = (function(_super){
     };
 
     return DockableWindow;
-
 })(DockingGroup);
-
 
 var DockingManager = (function(){
 
