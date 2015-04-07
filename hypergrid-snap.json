@@ -1,0 +1,25 @@
+{
+  "devtools_port": 9090,
+  "startup_app": {
+    "name": "docking-manager-example",
+    "url": "http://openfin.github.io/snap-and-dock/hypergrid-snap.html",
+    "uuid": "docking-manager-example",
+    "applicationIcon": "http://openfin.github.io/snap-and-dock/openfin.ico",
+    "autoShow": true,
+    "defaultWidth": 200,
+    "defaultHeight": 150,
+    "defaultTop": 200,
+    "defaultLeft": 200
+  },
+  "runtime": {
+    "arguments": "",
+    "version": "stable"
+  },
+  "shortcut": {
+    "company": "OpenFin",
+    "description": "docking-manager-example",
+    "icon": "http://openfin.github.io/snap-and-dock/openfin.ico",
+    "name": "docking-manager-example"
+  }
+}
+
