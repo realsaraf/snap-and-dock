@@ -6,8 +6,8 @@
     "uuid": "hypergrid-snap-example",
     "applicationIcon": "http://openfin.github.io/snap-and-dock/openfin.ico",
     "autoShow": true,
-    "defaultWidth": 600,
-    "defaultHeight": 450,
+    "defaultWidth": 200,
+    "defaultHeight": 150,
     "defaultTop": 200,
     "defaultLeft": 200
   },
