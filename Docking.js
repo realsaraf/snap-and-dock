@@ -6,12 +6,11 @@
  */
 
 window.addEventListener('DOMContentLoaded', function() {
-    fin.desktop.main(function () {
+    fin.desktop.main(function() {
 
-        var dockingManager = new DockingManager();
+        var dockingManager = dockingManager || new DockingManager();
         var counter = 0;
 
-        dockingManager.register(fin.desktop.Window.getCurrent(), false);
         function createChildWindow() {
 
             var dw = new fin.desktop.Window({
@@ -20,14 +19,14 @@ window.addEventListener('DOMContentLoaded', function() {
                 url: 'childWindow.html',
                 defaultWidth: 200,
                 defaultHeight: 150,
-                defaultTop: (screen.availHeight - 200)/2,
-                defaultLeft: (screen.availWidth - 150)/2,
+                defaultTop: (screen.availHeight - 200) / 2,
+                defaultLeft: (screen.availWidth - 150) / 2,
                 frame: false,
                 resize: true,
                 windowState: 'normal',
                 autoShow: true
 
-            }, function () {
+            }, function() {
 
                 dockingManager.register(dw);
             });

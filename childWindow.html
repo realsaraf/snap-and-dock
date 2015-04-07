@@ -1,51 +1,74 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
+  <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
-    <script language="javascript" src="child.js"></script>
+    <title>child</title>
+    <script src="child.js"></script>
     <style>
-
-        html, body{
-            min-height: 100%;
-        }
-        body{
-            padding: 0px;
-            margin: 0px;
-            background-color: azure;
-            border: 2px solid aqua;
-        }
-        .windowContent{
-
-            padding: 10px;
-            height: 94px;
-        }
-
-        #titlebar{
-            -webkit-user-select: none;
-            -webkit-app-region: drag; background-color: aqua; padding: 3px; padding-left: 10px;
-        }
-
-        #title{
-        }
-        .closeButton{
-            background-color: azure;
-            text-align: center;
-            -webkit-app-region: no-drag;
-            font-family: verdana;
-            font-size: 12px;
-            font-weight: bold;
-            -webkit-user-select: none;
-            padding: 2px;
-            cursor: pointer;
-        }
+    html,
+    body {
+      min-height: 100%;
+    }
+    
+    body {
+      padding: 0px;
+      margin: 0px;
+      background-color: azure;
+      border: 2px solid aqua;
+    }
+    
+    .windowContent {
+      padding: 10px;
+      height: 94px;
+    }
+    
+    #titlebar {
+      -webkit-user-select: none;
+      -webkit-app-region: drag;
+      background-color: aqua;
+      padding: 3px;
+      padding-left: 10px;
+    }
+    
+    #title {}
+    
+    .closeButton {
+      background-color: azure;
+      text-align: center;
+      -webkit-app-region: no-drag;
+      font-family: verdana;
+      font-size: 12px;
+      font-weight: bold;
+      -webkit-user-select: none;
+      padding: 2px;
+      cursor: pointer;
+    }
+    
+    table {
+      width: 100%;
+    }
+    
+    .titleColumn {
+      width: 85%;
+    }
     </style>
-</head>
-<body>
-<div id="titlebar"><table width="100%"><tr><td width="85%"><div id="title" > </div></td><td><div class="closeButton" onclick="window.close()"  >X</div></td></tr></table></div>
-<div class="windowContent">
-    <div id="dimentions"> </div>
-    <button id="undockButton">Undock</button>
-</div>
-</body>
+  </head>
+  <body>
+    <div id="titlebar">
+      <table>
+        <tr>
+          <td class="titleColumn">
+            <div id="title"> </div>
+          </td>
+          <td>
+            <div class="closeButton" onclick="window.close()">X</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="windowContent">
+      <div id="dimentions"> </div>
+      <button id="undockButton">Undock</button>
+    </div>
+  </body>
 </html>

@@ -1,4 +1,4 @@
-/* globals fin, DockingManager */
+/* globals fin */
 'use strict';
 
 /**
@@ -7,57 +7,55 @@
 
 var undockButton = null;
 
-fin.desktop.main(function(){
+function enableUndock(value) {
 
-    console.log("");
-    document.getElementById("title").innerText = window.name;
+    document.getElementById('undockButton').style.display = value ? 'block' : 'none';
+}
 
-    setInterval(updateDimentions, 100);
-   // new Draggable(document.getElementById("dragger")); // pass any element that you want to use as a handle for dragging.
-   // parentWindow.registerChild(window); // this registers current window as a dockable window
-    undockButton = document.getElementById("undockButton");
-    undockButton.addEventListener("click", undock);
-    enableUndock(false);
 
-    fin.desktop.InterApplicationBus.subscribe("*", "window-docked", onDock);
-    fin.desktop.InterApplicationBus.subscribe("*", "window-undocked", onUnDock);
+function onDock(message) {
 
-});
+    if (message.windowName === window.name) {
+        enableUndock(true);
+    }
 
-var onDock = function(message){
+}
 
-    if(message.windowName == window.name) enableUndock(true);
+function updateDimentions() {
 
-}.bind(window);
+    var win = fin.desktop.Window.getCurrent();
+    win.getBounds(function(bounds) {
 
-function updateDimentions(){
-
-    win = fin.desktop.Window.getCurrent();
-    win.getBounds(function(bounds){
-
-        document.getElementById("dimentions").innerHTML = "x: " + bounds.left + ", y: " + bounds.top + ", width: " + bounds.width + ", height: "+ bounds.height;
+        document.getElementById('dimentions').innerHTML = 'x: ' + bounds.left + ', y: ' + bounds.top + ', width: ' + bounds.width + ', height: ' + bounds.height;
     });
 
 }
 
-function onUnDock(message){
-
-    if(message.windowName == this.name){
+function onUnDock(message) {
+    if (message.windowName === window.name) {
         enableUndock(false);
     }
 }
 
-function undock(){
+function undock() {
 
-    fin.desktop.InterApplicationBus.publish("undock-window", {
+    fin.desktop.InterApplicationBus.publish('undock-window', {
 
         windowName: window.name
     });
 
 }
 
-function enableUndock(value){
+fin.desktop.main(function() {
 
-    console.log("enabling undock buton", value);
-    document.getElementById("undockButton").style.display = value? "block": "none";
-}
+    document.getElementById('title').innerText = window.name;
+
+    setInterval(updateDimentions, 100);
+    undockButton = document.getElementById('undockButton');
+    undockButton.addEventListener('click', undock);
+    enableUndock(false);
+
+    fin.desktop.InterApplicationBus.subscribe('*', 'window-docked', onDock);
+    fin.desktop.InterApplicationBus.subscribe('*', 'window-undocked', onUnDock);
+
+});
