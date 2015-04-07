@@ -16,7 +16,7 @@ The intention of this repo is to provide developers a general (yet uniform) appr
 * Identified behavioral issues or bugs
 
 # To See this Demo
-* run this [openfin installer](https://dl.openfin.co/services/download?fileName=hypergrid-demo-installer&config=http://openfin.github.io/snap-and-dock/app.json)
+* run this [openfin installer](https://dl.openfin.co/services/download?fileName=snap-and-dock-installer&config=http://openfin.github.io/openfin/snap-and-dock/app.json)
 * double click the icon it creates on your desktop
 
 # How to use
