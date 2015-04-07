@@ -6,8 +6,8 @@
     "uuid": "docking-manager-example",
     "applicationIcon": "http://openfin.github.io/snap-and-dock/openfin.ico",
     "autoShow": true,
-    "defaultWidth": 200,
-    "defaultHeight": 150,
+    "defaultWidth": 250,
+    "defaultHeight": 200,
     "defaultTop": 200,
     "defaultLeft": 200
   },

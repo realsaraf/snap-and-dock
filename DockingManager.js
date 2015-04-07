@@ -270,7 +270,9 @@ var DockableWindow = (function(_super) {
 
     DockableWindow.prototype.leaveGroup = function() {
 
-        this.parent.remove(this);
+        if (this.parent) {
+            this.parent.remove(this);
+        }
         this.openfinWindow.leaveGroup();
         this._inviteMemebersToTheGroup(this.children, this);
         this.isDocked = false;
