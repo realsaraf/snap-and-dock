@@ -15,6 +15,10 @@ The intention of this repo is to provide developers a general (yet uniform) appr
 * Upon generic code or framework, create some example projects to demonstrate how to extend or override certain features to achieve app specific requirements.
 * Identified behavioral issues or bugs
 
+# To See this Demo
+* run this [openfin installer](https://dl.openfin.co/services/download?fileName=hypergrid-demo-installer&config=http://openfin.github.io/snap-and-dock/app.json)
+* double click the icon it creates on your desktop
+
 # How to use
 
 ## From main window

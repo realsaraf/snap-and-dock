@@ -136,7 +136,7 @@ var DockableWindow = (function(_super) {
         this.openfinWindow.disableFrame();
         this.openfinWindow.addEventListener('disabled-frame-bounds-changing', this.onBoundsChanging);
         this.openfinWindow.addEventListener('disabled-frame-bounds-changed', this.onBoundsChanged);
-        this.openfinWindow.addEventListener('bounds-changed, this.onBoundsUpdate');
+        this.openfinWindow.addEventListener('bounds-changed', this.onBoundsUpdate);
         this.openfinWindow.addEventListener('closed', this.onClosed);
         this.openfinWindow.addEventListener('minimized', this.onMinimized);
         this.openfinWindow.addEventListener('hidden', this.onMinimized);
