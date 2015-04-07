@@ -10,6 +10,7 @@
     <div id="console"></div>
     <div>uuid: hypergrid-snap</div>
     <Button id="createWindows"> Create HyperGrid Window </Button>
+    <Button id="undockWindows"> Unlink all HyperGrid Windows </Button>
     <script>
     window.addEventListener('DOMContentLoaded', function() {
     fin.desktop.main(function() {
@@ -40,7 +41,12 @@
             return dw;
         }
 
-        document.getElementById('createWindows').onclick = createChildWindow;
+        function undockAll() {
+          dockingManager.undockAll();
+        }
+        
+        document.querySelector('#createWindows').onclick = createChildWindow;
+        document.querySelector('#undockWindows').onclick = undockAll;
     });
 });
     </script>

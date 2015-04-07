@@ -366,15 +366,17 @@ var DockingManager = (function() {
     };
 
     DockingManager.prototype.onUndock = function(message) {
-
         var name = message.windowName;
-
         for (var i = 0; i < windows.length; i++) {
-
             if (windows[i].name === name) {
-
                 windows[i].leaveGroup();
             }
+        }
+    };
+
+    DockingManager.prototype.undockAll = function() {
+        for (var i = 0; i < windows.length; i++) {
+            windows[i].leaveGroup();
         }
     };
 
