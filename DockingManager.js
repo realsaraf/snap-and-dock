@@ -136,7 +136,7 @@ var DockableWindow = (function(_super) {
         this.openfinWindow.disableFrame();
         this.openfinWindow.addEventListener('disabled-frame-bounds-changing', this.onBoundsChanging);
         this.openfinWindow.addEventListener('disabled-frame-bounds-changed', this.onBoundsChanged);
-        this.openfinWindow.addEventListener('bounds-changed, this.onBoundsUpdate');
+        this.openfinWindow.addEventListener('bounds-changed', this.onBoundsUpdate);
         this.openfinWindow.addEventListener('closed', this.onClosed);
         this.openfinWindow.addEventListener('minimized', this.onMinimized);
         this.openfinWindow.addEventListener('hidden', this.onMinimized);
@@ -274,7 +274,9 @@ var DockableWindow = (function(_super) {
 
     DockableWindow.prototype.leaveGroup = function() {
 
-        this.parent.remove(this);
+        if (this.parent) {
+            this.parent.remove(this);
+        }
         this.openfinWindow.leaveGroup();
         this._inviteMemebersToTheGroup(this.children, this);
         this.isDocked = false;
@@ -370,15 +372,17 @@ var DockingManager = (function() {
     };
 
     DockingManager.prototype.onUndock = function(message) {
-
         var name = message.windowName;
-
         for (var i = 0; i < windows.length; i++) {
-
             if (windows[i].name === name) {
-
                 windows[i].leaveGroup();
             }
+        }
+    };
+
+    DockingManager.prototype.undockAll = function() {
+        for (var i = 0; i < windows.length; i++) {
+            windows[i].leaveGroup();
         }
     };
 

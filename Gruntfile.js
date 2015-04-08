@@ -1,4 +1,3 @@
-
 'use strict';
 
 var files = {
@@ -42,7 +41,7 @@ module.exports = function(grunt) {
         },
 
         jsbeautifier: {
-            files:  files.js,
+            files: files.js,
             options: {
                 js: {
                     braceStyle: 'collapse',
@@ -67,11 +66,11 @@ module.exports = function(grunt) {
         },
 
         prettify: {
-          all: {
-            expand: true,
-            cwd: './',
-            src: files.html[0]
-          }
+            all: {
+                expand: true,
+                cwd: './',
+                src: files.html[0]
+            }
         }
 
     });
