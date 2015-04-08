@@ -185,7 +185,8 @@ var DockableWindow = (function(_super) {
         if (!this.isDocked) {
             this.setOpaticy(0.5);
         }
-        this.moveTo(bounds.left, bounds.top);
+
+        this.moveTo(bounds.left, bounds.top, bounds.width, bounds.height);
     };
 
     DockableWindow.prototype.onBoundsChanged = function() {
@@ -216,17 +217,20 @@ var DockableWindow = (function(_super) {
         this.onRestore();
     };
 
-    DockableWindow.prototype.moveTo = function(x, y) {
+    DockableWindow.prototype.moveTo = function(x, y, width, height) {
 
         this.x = x;
         this.y = y;
-        this.openfinWindow.removeEventListener('disabled-frame-bounds-changing', this.onBoundsChanging);
-        this.openfinWindow.moveTo(x, y, this.onMoved);
+        this.width = width ? width : this.width;
+        this.height = height ? height : this.height;
+
+        //this.openfinWindow.removeEventListener('disabled-frame-bounds-changing', this.onBoundsChanging);
+        this.openfinWindow.setBounds(x, y, this.width, this.height);
     };
 
     DockableWindow.prototype.onMoved = function() {
 
-        this.openfinWindow.addEventListener('disabled-frame-bounds-changing', this.onBoundsChanging);
+        //this.openfinWindow.addEventListener('disabled-frame-bounds-changing', this.onBoundsChanging);
     };
 
     DockableWindow.prototype.joinGroup = function(group) {
