@@ -1,18 +1,31 @@
 #Dock / Snap Example by OpenFin
 
 ## Dock & Snap Approach
-The intention of this repo is to provide developers a general (yet uniform) approach to docking and snapping windows within their apps while utilizing OpenFin. By design, the approach is generic and not intended to solve specific application use cases. Many applications and application developers have varying opinions as to the behavoir of window docking & snapping. Our thought here is to provide a framework for those app developers to have as a guide, but provide the flexibility and optionality to solve for their own unique use cases.   
+The intention of this repo is to provide developers a general (yet uniform) approach to docking and snapping windows within their apps while utilizing OpenFin. By design, the approach is generic and not intended to solve specific application use cases. Many applications and application developers have varying opinions as to the behavoir of window docking & snapping. Our thought here is to provide a framework for those app developers to have as a guide, but provide the flexibility and optionality to solve for their own unique use cases. PLEASE BE AWARE THAT THIS IS NOT A PRODUCT AND CONSIDER CLONING THIS PROJECT TO USE IT.   
+
+## Assumptions
+* This sample project is a baseline set of features for Snap & Dock
+* Edge cases are NOT a functionality driver for this sample
+* Docked windows are not resizable
 
 ## Current Features
-* Window snapping while dragging closed to other windows
+* Window snapping while dragging close to other windows
 * Docking snapped windows on release. 
+* Windows snap and align both vertically and/or horizontally
+* All docked windows in a group display an undock icon
 * Group docking, where you can have different group of windows grouped together.
 * Hierarchal docking and undocking of groups.
    - i.e windows can have parent, child and sibling relations so they can be undocked in the same order as they were docked intuitively.
 
+## Edge Cases Supported
+* If docked windows are undocked off monitor, the windows off monitor(s) come back into view
+
 ## Roadmap
 * Overriding different behaviours (like group docking/undocking) using keyboard hot keys like shift, ctrl, alt etc.
 * Upon generic code or framework, create some example projects to demonstrate how to extend or override certain features to achieve app specific requirements.
+* Configurable visual indication that a “snap” to object is about to occur
+* Undocking a single window, undocks the window from the group.
+ If there are multiple windows, and a window is undocked which leaves a window next to it orphaned from the group, then that window is undocked too.
 * Identified behavioral issues or bugs
 
 # To See this Demo
