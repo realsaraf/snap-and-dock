@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', function() {
     fin.desktop.main(function() {
 
         var dockingManager = DockingManager.getInstance();
+        dockingManager.register(fin.desktop.Window.getCurrent(), false);
         var counter = 0;
 
         function createChildWindow() {
