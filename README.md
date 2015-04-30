@@ -13,20 +13,13 @@ The intention of this repo is to provide developers a general (yet uniform) appr
 * Docking snapped windows on release. 
 * Windows snap and align both vertically and/or horizontally
 * All docked windows in a group display an undock icon
-* Group docking, where you can have different group of windows grouped together.
-* Hierarchal docking and undocking of groups.
-   - i.e windows can have parent, child and sibling relations so they can be undocked in the same order as they were docked intuitively.
+* Clicking the undock icon will seperate the window from the rest of the docked windows.
+* Single window can be docked to a group of docked window, but group of docked windows cannot join another group or window.
 
 ## Edge Cases Supported
 * If docked windows are undocked off monitor, the windows off monitor(s) come back into view
 
-## Roadmap
-* Overriding different behaviours (like group docking/undocking) using keyboard hot keys like shift, ctrl, alt etc.
-* Upon generic code or framework, create some example projects to demonstrate how to extend or override certain features to achieve app specific requirements.
-* Configurable visual indication that a “snap” to object is about to occur
-* Undocking a single window, undocks the window from the group.
- If there are multiple windows, and a window is undocked which leaves a window next to it orphaned from the group, then that window is undocked too.
-* Identified behavioral issues or bugs
+
 
 # To See this Demo
 * click this [openfin installer download](https://dl.openfin.co/services/download?fileName=snap-and-dock-installer&config=http://openfin.github.io/snap-and-dock/app.json)
