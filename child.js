@@ -58,4 +58,9 @@ fin.desktop.main(function() {
     fin.desktop.InterApplicationBus.subscribe('*', 'window-docked', onDock);
     fin.desktop.InterApplicationBus.subscribe('*', 'window-undocked', onUnDock);
 
+    fin.desktop.InterApplicationBus.publish('window-load', {
+
+        windowName: window.name
+    });
+
 });
