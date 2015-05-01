@@ -172,7 +172,10 @@ var DockableWindow = (function(_super) {
         if(groupName){
 
             console.log(this.name, groupName);
-            this.joinGroup(_instances[groupName]);
+            var win = _instances[groupName];
+            if(DockingManager.getInstance().isSnapable(this, win) || DockingManager.getInstance().isSnapable(win, this)) {
+                this.joinGroup(_instances[groupName]);
+            }
         }
     };
 
