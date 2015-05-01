@@ -154,6 +154,26 @@ var DockableWindow = (function(_super) {
         this.onBoundsUpdate = this.onBoundsUpdate.bind(this);
         this.onMinimized = this.onMinimized.bind(this);
         this.onRestored = this.onRestored.bind(this);
+        this.onLoad = this.onLoad.bind(this);
+    };
+
+    DockableWindow.prototype.onLoad = function(message) {
+
+        if (message.windowName !== this.name) {
+           return;
+        }
+
+        fin.desktop.InterApplicationBus.unsubscribe('*', 'window-load', this.onLoad);
+
+        var groupName = localStorage.getItem(this.name);
+        console.log(this.name, groupName);
+
+        this.onReady();
+        if(groupName){
+
+            console.log(this.name, groupName);
+            this.joinGroup(_instances[groupName]);
+        }
     };
 
     DockableWindow.prototype.onWindowCreated = function() {
@@ -169,8 +189,7 @@ var DockableWindow = (function(_super) {
         this.openfinWindow.addEventListener('restored', this.onRestored);
         this.openfinWindow.addEventListener('shown', this.onRestored);
 
-        this.onReady();
-
+        fin.desktop.InterApplicationBus.subscribe('*', 'window-load', this.onLoad);
     };
 
     DockableWindow.prototype.onBounds = function(bounds) {
@@ -311,7 +330,7 @@ var DockableWindow = (function(_super) {
             windowName: group.name
         });
 
-       // localStorage.setItem(this.name, group.name);
+        localStorage.setItem(this.name, group.name);
         console.log(this.name, localStorage.getItem(this.name));
     };
 
