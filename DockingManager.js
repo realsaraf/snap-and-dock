@@ -523,6 +523,10 @@ var DockingManager = (function() {
 
     DockingManager.prototype.unregister = function(window) {
 
+        if(!(window instanceof DockableWindow)){
+            window = this._getWindowByOpenfinWindow(window);
+        }
+
         var index = windows.indexOf(window);
 
         if (index >= 0) {
