@@ -535,6 +535,16 @@ var DockingManager = (function() {
         }
     };
 
+    DockingManager.prototype._getWindowByOpenfinWindow = function(opefinWindow){
+
+        for(var i = 0; i < windows.length; i++){
+
+            if(windows[i].opefinWindow == opefinWindow) return windows[i];
+        }
+
+        return null;
+    }
+
     DockingManager.prototype.onVisibilityChanged = function() {
 
         if (document.hidden) {
