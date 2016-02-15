@@ -48,6 +48,10 @@ e.g. ```fin.desktop.InterApplicationBus.subscribe("*", "window-docked", onDock);
  e.g.
  ``` fin.desktop.InterApplicationBus.publish("undock-window", { windowName: window.name });```
 
+## From External Windows
+
+External windows, such as Java windows, can also register with Docking Manager to have Snap and Dock functionalties.  Please refer to [Java Example](https://github.com/openfin/java-example) as an example.
+
  And thats all!
 
  For more details, please have a look at the code in this project.
