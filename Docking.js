@@ -37,5 +37,16 @@ window.addEventListener('DOMContentLoaded', function() {
         }
 
         document.getElementById('createWindows').onclick = createChildWindow;
+
+        fin.desktop.InterApplicationBus.subscribe('*', 'register-docking-window', function(message) {
+            var appUuid = message.applicationUuid;
+            var name = message.windowName;
+            console.log('Registering docking window', appUuid, name);
+            var javaWindow = fin.desktop.Window.wrap(appUuid, name);
+            dockingManager.register(javaWindow);
+        });
+        fin.desktop.InterApplicationBus.publish("status-update", {status: 'ready'});
+
     });
+
 });
